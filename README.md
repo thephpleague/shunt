@@ -1,5 +1,7 @@
 #Grunt
 
+[![Build Status](https://secure.travis-ci.org/juriya/grunt.png?branch=master)](http://travis-ci.org/juriya/grunt)
+
 Inspired by Ruby's Capistrano, Grunt is PHP library for executing commands in parallel on multiple remote machines, via SSH. Specifically, this library was written to simplify and automate deployment of PHP applications to distributed environments.
 
 ## Requirement
