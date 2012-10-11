@@ -5,7 +5,7 @@ php:
   - 5.4
 
 before_script:
-  - sudo pear install pear.phpunit.de/PHP_Invoker
+  - sudo pyrus install http://pear.phpunit.de/get/PHP_Invoker-1.1.2.tgz
   - phpenv rehash
   - sudo apt-get install libssh2-1-dev libssh2-php
   - sudo pecl install -f ssh2 < .noninteractive
