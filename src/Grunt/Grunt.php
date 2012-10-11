@@ -51,9 +51,6 @@ class Grunt {
 	 */
 	public static function autoload($className)
 	{
-		@require_once 'PHP/Token/Stream/Autoload.php';
-		@require_once 'PHPUnit/Autoload.php';
-		
 		// Ignore browser built-in request
 		if (strpos($className, 'favicon.ico') !== FALSE) {
 			return;
@@ -77,7 +74,11 @@ class Grunt {
 			$fileName = str_replace($candidate . DIRECTORY_SEPARATOR, __DIR__ . DIRECTORY_SEPARATOR, $fileName);
 		}
 
-		require_once $fileName;
+		if(file_exist($fileName)) {
+			require_once $fileName;
+		}
+
+		return FALSE;
 	}
 
 	/**
