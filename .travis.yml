@@ -5,7 +5,7 @@ php:
   - 5.4
 
 before_script:
-  - apt-get install libssh2-1-dev libssh2-php
+  - sudo apt-get install libssh2-1-dev libssh2-php
   - php -m | grep ssh2
 
 script: phpunit --coverage-text --configuration src/Grunt/Tests/phunit.xml
