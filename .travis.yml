@@ -8,4 +8,4 @@ before_script:
   - sudo apt-get install libssh2-1-dev libssh2-php
   - sudo pecl install -f ssh2 < .noninteractive
 
-script: phpunit --coverage-text --configuration src/Grunt/Tests/phunit.xml
+script: phpunit --coverage-text --configuration src/Grunt/Tests/phpunit.xml
