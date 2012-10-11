@@ -20,7 +20,7 @@ class GruntTest extends \PHPUnit_Framework_TestCase {
 
 	public function setUp()
 	{
-		$credential = array('username' => 'root', 'password' => '');
+		$credential = array('username' => 'travis', 'password' => '');
 		$session = new Session('localhost');
 		$auth = new Auth(array('auth_password' => $credential));
 
