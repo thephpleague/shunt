@@ -157,7 +157,7 @@ class Grunt {
 		$connection = $this->session->getConnection();
 		$halt = FALSE;
 
-		Console::printOut('[' . $host . ']: ' . $command);
+		$retval or Console::printOut('[' . $host . ']: ' . $command);
 
 		$stream = ssh2_exec($connection, $command);
 

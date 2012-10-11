@@ -20,7 +20,7 @@ class GruntTest extends \PHPUnit_Framework_TestCase {
 
 	public function setUp()
 	{
-		$credential = array('username' => 'travis', 'password' => '');
+		$credential = array('username' => 'grunt', 'password' => 'hearmyroar');
 		$session = new Session('localhost');
 		$auth = new Auth(array('auth_password' => $credential));
 
@@ -60,6 +60,6 @@ class GruntTest extends \PHPUnit_Framework_TestCase {
 	{
 		$retval = $this->grunt->run('php -i', TRUE);
 
-		$this->assertEquals(0, $retval);
+		$this->assertEquals(1, $retval);
 	}
 }

@@ -17,24 +17,26 @@ class AuthTest extends \PHPUnit_Framework_TestCase {
 
 	public function testConstructor()
 	{
-		$auth = new Auth(array('username' => 'root'));
+		$credential = array('username' => 'grunt', 'password' => 'hearmyroar');
+		$auth = new Auth(array('auth_password' => $credential));
 
 		$this->assertInstanceOf('\\Grunt\\Auth', $auth);
 	}
 
 	public function testGetCredential()
 	{
-		$auth = new Auth(array('username' => 'root'));
+		$credential = array('username' => 'grunt', 'password' => 'hearmyroar');
+		$auth = new Auth(array('auth_password' => $credential));
 
-		$this->assertArrayHasKey('username', $auth->getCredential());
+		$this->assertArrayHasKey('auth_password', $auth->getCredential());
 	}
 
 	public function testAuthorize()
 	{
-		$credential = array('username' => 'root');
+		$credential = array('username' => 'grunt', 'password' => 'hearmyroar');
 		$session = new Session('localhost');
-		$auth = new Auth(array('auth_none' => $credential));
+		$auth = new Auth(array('auth_password' => $credential));
 
-		$this->assertTrue($auth->authorize($session, 'auth_none', $credential));
+		$this->assertTrue($auth->authorize($session, 'auth_password', $credential));
 	}
 }
