@@ -10,7 +10,7 @@ Inspired by Ruby's Capistrano, Grunt is PHP library for executing commands in pa
 
 ## Assumptions
 
-As Ruby's Capistrano, Grunt is also "opinionated software", which means it has very firm ideas about how things ought to be done, and tries to force those ideas on you. Some of the assumptions behind these opinions are:
+As opiniated as Ruby's Capistrano, Grunt has very firm ideas about how things ought to be done, and tries to force those ideas on you. Some of the assumptions behind these opinions are:
 
 * You are using SSH to access the remote servers.
 * You either have the same password to all target machines, or you have public keys in place to allow passwordless access to them.
@@ -35,6 +35,7 @@ By default, the script will look for a file called `Gruntfile`, which contain ho
 
 		'hosts' => array(
 			'staging' => 'staging.domain.com'
+			'repro' => 'backup.domain.com'
 			'production' => 'production.domain.com'
 		),
 
@@ -59,6 +60,11 @@ By default, the script will look for a file called `Gruntfile`, which contain ho
 The `tasks` collection indicates which tasks that available to execute. Based by above recipe, you could run :
 
 	grunt -read_home_dir
+
+Above command will execute `ls` on all remote machines defined in `hosts` parameter. You could tell Grunt to run the task on specific host(s) by appending the host nickname right after the task :
+
+	grunt -read_home_dir staging
+	grunt -print_php_info staging,production
 
 Grunt also will automatically create some abbreviation for your task. You can do "grunt" to see all the available tasks.
 
