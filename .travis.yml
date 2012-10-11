@@ -5,6 +5,7 @@ php:
   - 5.4
 
 before_script:
+  - pear list -c pear.phpunit.de
   - sudo apt-get install libssh2-1-dev libssh2-php
   - sudo pecl install -f ssh2 < .noninteractive
   - echo "extension=ssh2.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
