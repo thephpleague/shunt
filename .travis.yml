@@ -7,6 +7,7 @@ php:
 before_script:
   - sudo pyrus install http://pear.phpunit.de/get/PHP_Invoker-1.1.2.tgz
   - sudo pyrus install http://pear.phpunit.de/get/DbUnit-1.2.1.tgz
+  - sudo pyrus install http://pear.phpunit.de/get/PHPUnit_Selenium-1.2.9.tgz
   - phpenv rehash
   - sudo apt-get install libssh2-1-dev libssh2-php
   - sudo pecl install -f ssh2 < .noninteractive
