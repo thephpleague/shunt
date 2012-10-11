@@ -51,6 +51,9 @@ class Grunt {
 	 */
 	public static function autoload($className)
 	{
+		@require_once 'PHP/Token/Stream/Autoload.php';
+		@require_once 'PHPUnit/Autoload.php';
+		
 		// Ignore browser built-in request
 		if (strpos($className, 'favicon.ico') !== FALSE) {
 			return;
