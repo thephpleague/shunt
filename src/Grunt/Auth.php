@@ -65,6 +65,7 @@ class Auth {
 		$connection = $session->getConnection();
 		array_unshift($data, $connection);
 
+		// @codeCoverageIgnoreStart
 		try {
 			call_user_func_array(Auth::FUNCTION_PREFIX . $type, $data);
 		} catch(\ErrorException $e) {
@@ -74,6 +75,7 @@ class Auth {
 		$session->setConnection($connection);
 
 		return (bool) (is_resource($connection));
+		// @codeCoverageIgnoreEnd
 	}
 
 }

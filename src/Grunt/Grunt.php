@@ -145,7 +145,7 @@ class Grunt {
 	 * @param  bool   Return value
 	 * @return mixed
 	 */
-	public function run($command)
+	public function run($command, $retval = FALSE)
 	{
 		$host = $this->session->getHost();
 		$connection = $this->session->getConnection();
@@ -171,6 +171,9 @@ class Grunt {
 
 		fclose($stream);
 
+		if ($retval) {
+			return (int) $halt;
+		}
 		
 		if ($halt) {
 			Console::printOut($result_err);

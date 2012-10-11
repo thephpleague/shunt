@@ -39,11 +39,13 @@ class Session {
 	{
 		$this->setHost($host);
 
+		// @codeCoverageIgnoreStart
 		try {
 			$connection = ssh2_connect($this->getHost());
 		} catch (\ErrorException $e) {
 			return NULL;
 		}
+		// @codeCoverageIgnoreEnd
 
 		$this->setConnection($connection);
 	}
