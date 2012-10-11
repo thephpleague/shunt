@@ -7,6 +7,5 @@ php:
 before_script:
   - sudo apt-get install libssh2-1-dev libssh2-php
   - sudo pecl install -f ssh2 < .noninteractive
-  - php -m | grep ssh2
 
 script: phpunit --coverage-text --configuration src/Grunt/Tests/phunit.xml
