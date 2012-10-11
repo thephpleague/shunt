@@ -1,0 +1,26 @@
+#!/usr/bin/env php
+<?php
+
+if (($gruntPath = realpath(__DIR__ . '/../src/Grunt/Grunt.php')) && is_file($gruntPath)) {
+
+	require_once $gruntPath;
+
+	$composerAutoload = realpath(__DIR__ . '/../../../autoload.php');
+	$composerAutoloadExists = (bool) is_file($composerAutoload);
+
+	// Try another possible composer path
+	if ( ! $composerAutoloadExists) {
+		$composerAutoload = realpath(__DIR__ . '/../vendor/autoload.php');
+		$composerAutoloadExists = (bool) is_file($composerAutoload);
+	}
+
+	$composerAutoloadExists and require_once $composerAutoload;
+} else {
+	require_once 'Grunt/Grunt.php';
+}
+
+use Grunt\Grunt;
+use Grunt\Console;
+
+Grunt::registerAutoloader();
+Console::execute();
