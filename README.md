@@ -61,7 +61,7 @@ By default, the script will look for a file called `Gruntfile`, which contain ho
 
 The `tasks` collection indicates which tasks that available to execute. Based by above recipe, you could run :
 
-	grunt -read_home_dir
+	grunt --read_home_dir
 
 Above command will execute `ls` on all remote machines defined in `hosts` parameter. You could tell Grunt to run the task on specific host(s) by appending the host nickname right after the task :
 

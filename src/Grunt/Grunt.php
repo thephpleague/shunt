@@ -123,15 +123,7 @@ class Grunt {
 	public function __construct(Session $session, Auth $auth)
 	{
 		if ($session->valid()) {
-			$credential = $auth->getCredential();
-
-			if (array_key_exists('auth_pubkey_file', $credential)) {
-				$authorized = $auth->authorize($session, 'auth_pubkey_file', $credential['auth_pubkey_file']);
-			} elseif (array_key_exists('auth_password', $credential)) {
-				$authorized = $auth->authorize($session, 'auth_password', $credential['auth_password']);
-			} else {
-				$authorized = $auth->authorize($session, 'auth_none', $credential['auth_none']);
-			}
+			$authorized = $auth->authorize($session);
 
 			if ( ! $authorized) {
 				throw new \RuntimeException('SSH authorization failed.');

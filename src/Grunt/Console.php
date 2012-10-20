@@ -149,7 +149,7 @@ class Console {
 	public static function collectData()
 	{
 		$gruntHolder = array();
-		$currentDir = realpath($_SERVER['PWD']);
+		$currentDir = (isset($_SERVER['PWD'])) ? realpath($_SERVER['PWD']) : getcwd();
 
 		if (($holder = $currentDir . DIRECTORY_SEPARATOR . Grunt::holder()) && @file_exists($holder)) {
 			$gruntHolder = include $holder;

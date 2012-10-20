@@ -56,13 +56,24 @@ class Auth {
 	 * Authorize method
 	 *
 	 * @param  Session SSH session
-	 * @param  string  Auth type
-	 * @param  array   Auth data
 	 * @return bool
 	 */
-	public function authorize(Session $session, $type, $data)
+	public function authorize(Session $session)
 	{
 		$connection = $session->getConnection();
+		$credential = $this->getCredential();
+
+		if (array_key_exists('auth_pubkey_file', $credential)) {
+			$type = 'auth_pubkey_file'; 
+			$data = $credential['auth_pubkey_file'];
+		} elseif (array_key_exists('auth_password', $credential)) {
+			$type = 'auth_password';
+			$data = $credential['auth_password'];
+		} else {
+			$type = 'auth_none';
+			$data = $credential['auth_none'];
+		}
+
 		array_unshift($data, $connection);
 
 		// @codeCoverageIgnoreStart
