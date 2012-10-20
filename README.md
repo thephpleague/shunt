@@ -65,8 +65,8 @@ The `tasks` collection indicates which tasks that available to execute. Based by
 
 Above command will execute `ls` on all remote machines defined in `hosts` parameter. You could tell Grunt to run the task on specific host(s) by appending the host nickname right after the task :
 
-	grunt -read_home_dir staging
-	grunt -print_php_info staging,production
+	grunt --read_home_dir staging
+	grunt --print_php_info staging,production
 
 Grunt also will automatically create some abbreviation for your task. You can do "grunt" to see all the available tasks.
 
