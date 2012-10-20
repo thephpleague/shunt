@@ -27,6 +27,21 @@ class Auth {
 	const FUNCTION_PREFIX = 'ssh2_';
 
 	/**
+	 * @var string SSH auth public key file type prefix
+	 */
+	const PUBKEY_FILE = 'auth_pubkey_file';
+
+	/**
+	 * @var string SSH auth password type prefix
+	 */
+	const PASSWORD = 'auth_password';
+
+	/**
+	 * @var string SSH auth none type prefix
+	 */
+	const NONE = 'auth_none';
+
+	/**
 	 * @var array SSH auth credential
 	 */
 	protected $credential;
@@ -63,15 +78,15 @@ class Auth {
 		$connection = $session->getConnection();
 		$credential = $this->getCredential();
 
-		if (array_key_exists('auth_pubkey_file', $credential)) {
-			$type = 'auth_pubkey_file'; 
-			$data = $credential['auth_pubkey_file'];
-		} elseif (array_key_exists('auth_password', $credential)) {
-			$type = 'auth_password';
-			$data = $credential['auth_password'];
+		if (array_key_exists(Auth::PUBKEY_FILE, $credential)) {
+			$type = Auth::PUBKEY_FILE; 
+			$data = $credential[Auth::PUBKEY_FILE];
+		} elseif (array_key_exists(Auth::PASSWORD, $credential)) {
+			$type = Auth::PASSWORD;
+			$data = $credential[Auth::PASSWORD];
 		} else {
-			$type = 'auth_none';
-			$data = $credential['auth_none'];
+			$type = Auth::NONE;
+			$data = $credential[Auth::NONE];
 		}
 
 		array_unshift($data, $connection);

@@ -167,9 +167,9 @@ class Console {
 			$credential = array_filter($gruntHolder['auth']);
 
 			if (array_key_exists('password', $credential)) {
-				self::setAuth('auth_password', $credential);
+				self::setAuth(Auth::PASSWORD, $credential);
 			} elseif (array_key_exists('pubkeyfile', $credential) && array_key_exists('privkeyfile', $credential)) {
-				self::setAuth('auth_pubkey_file', $credential);
+				self::setAuth(Auth::PUBKEY_FILE, $credential);
 			}
 		}
 
