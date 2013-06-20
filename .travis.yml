@@ -12,4 +12,4 @@ before_script:
   - sudo useradd grunt
   - sudo passwd grunt < .gruntpwd
 
-script: phpunit --coverage-text --configuration src/Grunt/Tests/phpunit.xml
+script: phpunit --coverage-text
