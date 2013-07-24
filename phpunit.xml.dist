@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <phpunit 
-	bootstrap="src/Grunt/Tests/bootstrap.php"
+	bootstrap="vendor/autoload.php"
 	colors="true"
 	convertNoticesToExceptions="true"
 	convertWarningsToExceptions="true"
@@ -11,15 +11,15 @@
 	stopOnSkipped="false">
 	<testsuites>
 		<testsuite name="Grunt Test Suite">
-			<directory suffix="Test.php">src/Grunt/Tests</directory>
+			<directory suffix="Test.php">src/League/Grunt/Tests</directory>
 		</testsuite>
 	</testsuites>
 	<filter>
         <whitelist addUncoveredFilesFromWhitelist="false">
             <directory suffix=".php">src</directory>
 		    <exclude>
-		      <directory suffix=".php">src/Grunt/Tests</directory>
-		      <file>src/Grunt/Console.php</file>
+		      <directory suffix=".php">src/League/Grunt/Tests</directory>
+		      <file>src/League/Grunt/Console.php</file>
 		    </exclude>
         </whitelist>
 	</filter>
