@@ -1,5 +1,4 @@
-Contributing
-------------
+# Contributing
 
 Grunt is an open source project. If you'd like to contribute,
 please read the [PSR-2-coding-style-guide][1] the documentation.
