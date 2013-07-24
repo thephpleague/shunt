@@ -1,26 +1,21 @@
 #!/usr/bin/env php
 <?php
 
-if (($gruntPath = realpath(__DIR__ . '/../src/Grunt/Grunt.php')) && is_file($gruntPath)) {
+$composerAutoload = realpath(__DIR__ . '/../../../autoload.php');
+$composerAutoloadExists = (bool) is_file($composerAutoload);
 
-	require_once $gruntPath;
-
-	$composerAutoload = realpath(__DIR__ . '/../../../autoload.php');
+// Try another possible composer path
+if ( ! $composerAutoloadExists) {
+	$composerAutoload = realpath(__DIR__ . '/../vendor/autoload.php');
 	$composerAutoloadExists = (bool) is_file($composerAutoload);
-
-	// Try another possible composer path
-	if ( ! $composerAutoloadExists) {
-		$composerAutoload = realpath(__DIR__ . '/../vendor/autoload.php');
-		$composerAutoloadExists = (bool) is_file($composerAutoload);
-	}
-
-	$composerAutoloadExists and require_once $composerAutoload;
-} else {
-	require_once 'Grunt/Grunt.php';
 }
 
-use Grunt\Grunt;
-use Grunt\Console;
+$composerAutoloadExists and require_once $composerAutoload;
 
-Grunt::registerAutoloader();
+if ( ! $composerAutoloadExists) {
+	die('Please locate and include composer autoloader here.');
+}
+
+use League\Grunt\Console;
+
 Console::execute();
