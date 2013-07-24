@@ -15,7 +15,7 @@
         "ext-ssh2": ">=0.11.2"
     },
     "autoload": {
-        "psr-0": { "Grunt": "src/" }
+        "psr-0": { "League\\Grunt": "src/" }
     },
     "bin": ["bin/grunt"]
 }
