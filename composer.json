@@ -1,9 +1,9 @@
 {
-    "name": "juriya/grunt",
+    "name": "league/grunt",
     "description": "PHP library for executing commands in parallel on multiple remote machines, via SSH",
     "keywords": ["ssh"],
-    "homepage": "https://github.com/juriya/grunt",
-    "license": "BSD-3-Clause",
+    "homepage": "https://github.com/php-loep/grunt",
+    "license": "MIT",
     "authors": [
         {
             "name": "Taufan Aditya",
