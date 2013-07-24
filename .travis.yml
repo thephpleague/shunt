@@ -12,5 +12,6 @@ before_script:
   - php -m | grep ssh2
   - sudo useradd grunt
   - sudo passwd grunt < .gruntpwd
+  - composer dump-autoload
 
 script: phpunit --coverage-text
