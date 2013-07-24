@@ -39,7 +39,7 @@ In general, you'll use Grunt as follows:
 
 Use the grunt script as follows:
 
-	grunt -some_task
+	grunt --some_task
 
 By default, the script will look for a file called `Gruntfile`, which contain hosts information, credential and your tasks. Here the structure of `Gruntfile` :
 
@@ -82,6 +82,24 @@ Above command will execute `ls` on all remote machines defined in `hosts` parame
 
 Grunt also will automatically create some abbreviation for your task. You can do "grunt" to see all the available tasks.
 
-## License
+Changelog
+---------
 
-MIT (see LICENSE for full license details).
+[See the changelog file](https://github.com/php-loep/grunt/blob/master/CHANGELOG.md)
+
+Contributing
+------------
+
+Please see [CONTRIBUTING](https://github.com/php-loep/grunt/blob/master/CONTRIBUTING.md) for details.
+
+Support
+-------
+
+[Please open an issues in github](https://github.com/php-loep/grunt/issues)
+
+
+License
+-------
+
+Geotools is released under the MIT License. See the bundled
+[LICENSE](https://github.com/php-loep/grunt/blob/master/LICENSE) file for details.
