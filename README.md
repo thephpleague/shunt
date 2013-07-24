@@ -95,7 +95,7 @@ Please see [CONTRIBUTING](https://github.com/php-loep/grunt/blob/master/CONTRIBU
 Support
 -------
 
-[Please open an issues in github](https://github.com/php-loep/grunt/issues)
+Bugs and feature request are tracked on [GitHub](https://github.com/php-loep/grunt/issues)
 
 
 License
