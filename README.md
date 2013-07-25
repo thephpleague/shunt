@@ -101,5 +101,5 @@ Bugs and feature request are tracked on [GitHub](https://github.com/php-loep/gru
 License
 -------
 
-Geotools is released under the MIT License. See the bundled
+Grunt is released under the MIT License. See the bundled
 [LICENSE](https://github.com/php-loep/grunt/blob/master/LICENSE) file for details.
