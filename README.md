@@ -1,8 +1,6 @@
 #Grunt
 
-[![Build Status](https://secure.travis-ci.org/php-loep/grunt.png?branch=master)](http://travis-ci.org/php-loep/grunt) [![Dependencies Status](https://d2xishtp1ojlk0.cloudfront.net/d/6064030)](http://depending.in/php-loep/grunt)
-[![Total Downloads](https://poser.pugx.org/league/grunt/downloads.png)](https://packagist.org/packages/league/grunt)
-[![Latest Stable Version](https://poser.pugx.org/league/grunt/v/stable.png)](https://packagist.org/packages/league/grunt)
+[![Build Status](https://secure.travis-ci.org/php-loep/grunt.png?branch=master)](http://travis-ci.org/php-loep/grunt) [![Dependencies Status](https://d2xishtp1ojlk0.cloudfront.net/d/6064030)](http://depending.in/php-loep/grunt) [![Coverage Status](https://coveralls.io/repos/php-loep/grunt/badge.png?branch=master)](https://coveralls.io/r/php-loep/grunt?branch=master) [![Latest Stable Version](https://poser.pugx.org/league/grunt/v/stable.png)](https://packagist.org/packages/league/grunt) [![Total Downloads](https://poser.pugx.org/league/grunt/downloads.png)](https://packagist.org/packages/league/grunt)
 
 Inspired by Ruby's Capistrano, Grunt is PHP library for executing commands in parallel on multiple remote machines, via SSH. Specifically, this library was written to simplify and automate deployment of PHP applications to distributed environments.
 
