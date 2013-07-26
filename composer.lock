@@ -1,0 +1,73 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+    ],
+    "hash": "8a891b909a90d997b540e30a350045db",
+    "packages": [
+
+    ],
+    "packages-dev": [
+        {
+            "name": "league/phpunit-coverage-listener",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-loep/phpunit-coverage-listener.git",
+                "reference": "v1.0.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-loep/phpunit-coverage-listener/zipball/v1.0.0",
+                "reference": "v1.0.0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "League\\PHPUnitCoverageListener": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taufan Aditya",
+                    "email": "toopay@taufanaditya.com",
+                    "homepage": "http://taufanaditya.com",
+                    "role": "lead"
+                }
+            ],
+            "description": "Utility library that allow you to process the PHPUnit code-coverage information and send it into some remote location via cURL",
+            "homepage": "https://github.com/php-loep/phpunit-coverage-listener",
+            "keywords": [
+                "coverage",
+                "coveralls",
+                "phpunit"
+            ],
+            "time": "2013-07-26 21:31:43"
+        }
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": [
+
+    ],
+    "platform": {
+        "php": ">=5.3.3",
+        "ext-ssh2": ">=0.11.2"
+    },
+    "platform-dev": [
+
+    ]
+}
