@@ -17,20 +17,20 @@
         <listener class="League\PHPUnitCoverageListener\Listener">
             <arguments>
                 <array>
+                    <element key="namespace">
+                        <string>League\Grunt</string>
+                    </element>
+                    <element key="repo_token">
+                        <string>YjplhynehgFoWOpOFiNwcm7tIRZepoBsw</string>
+                    </element>
+                    <element key="target_url">
+                        <string>https://coveralls.io/api/v1/jobs</string>
+                    </element>
                     <element key="printer">
                       <object class="League\PHPUnitCoverageListener\Printer\StdOut"/>
                     </element>
                     <element key="hook">
                       <object class="League\PHPUnitCoverageListener\Hook\Travis"/>
-                    </element>
-                    <element key="namespace">
-                        <string>League\PHPUnitCoverageListener</string>
-                    </element>
-                    <element key="repo_token">
-                        <string>XKUga6etuxSWYPXJ0lAiDyHM2jbKPQAKC</string>
-                    </element>
-                    <element key="target_url">
-                        <string>https://coveralls.io/api/v1/jobs</string>
                     </element>
                     <element key="coverage_dir">
                         <string>/tmp</string>
