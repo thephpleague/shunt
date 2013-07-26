@@ -72,18 +72,15 @@ class Grunt
      */
     public function __construct(Session $session, Auth $auth)
     {
-        if ($session->valid()) {
-            $authorized = $auth->authorize($session);
+        // Authorization
+        if ( ! $session->valid()) throw new \RuntimeException('SSH connection failed.');
 
-            if (! $authorized) {
-                throw new \RuntimeException('SSH authorization failed.');
-            }
+        $authorized = $auth->authorize($session);
 
-            $this->session = $session;
-            $this->auth = $auth;
-        } else {
-            throw new \RuntimeException('SSH connection failed.');
-        }
+        if (! $authorized) throw new \RuntimeException('SSH authorization failed.');
+
+        $this->session = $session;
+        $this->auth = $auth;
     }
 
     /**
@@ -113,16 +110,13 @@ class Grunt
         $result_dio = stream_get_contents($dio_stream);
         $result_dio = empty($result_dio) ? '[OK]' : $result_dio;
 
-        if (!empty($result_err)) {
-            $halt = TRUE;
-        }
+        if (!empty($result_err)) $halt = TRUE;
 
         fclose($stream);
 
-        if ($retval) {
-            return (int) $halt;
-        }
+        if ($retval) return (int) $halt;
 
+        // @codeCoverageIgnoreStart
         if ($halt) {
             Console::printOut($result_err);
             Console::printOut('Aborting...');
@@ -137,6 +131,7 @@ class Grunt
                 Console::printOut('[out :: '.$host.']: '.$result_dio);
             }
         }
+        // @codeCoverageIgnoreEnd
     }
 
     /**
@@ -145,9 +140,7 @@ class Grunt
     public static function handleError($errno, $errstr, $errfile, $errline, array $errcontext)
     {
         // Error was suppressed with the '@' operator
-        if (0 === error_reporting()) {
-            return FALSE;
-        }
+        if (0 === error_reporting()) return FALSE;
 
         throw new \ErrorException($errstr, 0, $errno, $errfile, $errline);
     }

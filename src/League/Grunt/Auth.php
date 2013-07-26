@@ -91,17 +91,11 @@ class Auth
 
         array_unshift($data, $connection);
 
-        // @codeCoverageIgnoreStart
-        try {
-            call_user_func_array(Auth::FUNCTION_PREFIX . $type, $data);
-        } catch (\ErrorException $e) {
-            $connection = NULL;
-        }
+        call_user_func_array(Auth::FUNCTION_PREFIX . $type, $data);
 
         $session->setConnection($connection);
 
         return (bool) (is_resource($connection));
-        // @codeCoverageIgnoreEnd
     }
 
 }
