@@ -14,4 +14,4 @@ before_script:
   - sudo passwd grunt < .gruntpwd
   - composer dump-autoload
 
-script: phpunit --coverage-text
+script: phpunit --coverage-clover /tmp/coverage.xml
