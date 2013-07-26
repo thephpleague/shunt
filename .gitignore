@@ -1,2 +1,3 @@
 Gruntfile
+phpunit.xml
 /vendor
