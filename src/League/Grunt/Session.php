@@ -32,7 +32,7 @@ class Session
     /**
      * Session constructor
      *
-     * @param  string Hostname
+     * @param  string $host Hostname
      * @return void
      */
     public function __construct($host)

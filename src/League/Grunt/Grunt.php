@@ -66,8 +66,8 @@ class Grunt
     /**
      * Grunt instantiation
      *
-     * @param  Session
-     * @param  Auth
+     * @param  Session $session
+     * @param  Auth    $auth
      * @return void
      */
     public function __construct(Session $session, Auth $auth)
@@ -86,8 +86,8 @@ class Grunt
     /**
      * Grunt runner
      *
-     * @param  string Command to execute
-     * @param  bool   Return value
+     * @param  string $command Command to execute
+     * @param  bool   $retval Return value
      * @return mixed
      */
     public function run($command, $retval = FALSE)

@@ -49,7 +49,7 @@ class Auth
     /**
      * Auth constructor
      *
-     * @param  array credential
+     * @param  array $credential
      * @return void
      */
     public function __construct($credential)
