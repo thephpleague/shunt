@@ -29,7 +29,7 @@ class Console
     protected static $hosts = array('local' => 'localhost');
 
     /**
-     * @var array Collected authentification information
+     * @var array Collected authentication information
      */
     protected static $auth = array('auth_none' => array('username' => 'root'));
 
