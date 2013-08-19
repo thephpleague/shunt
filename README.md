@@ -35,9 +35,9 @@ In general, you'll use Grunt as follows:
 * Create a recipe file (`Gruntfile`).
 * Use the `grunt` script to execute your recipe.
 
-Use the grunt script as follows:
+From the root folder of your composer-based project, use the grunt script as follows:
 
-	grunt --some_task
+	vendor/bin/grunt --some_task
 
 By default, the script will look for a file called `Gruntfile`, which contain hosts information, credential and your tasks. Here the structure of `Gruntfile` :
 
@@ -71,12 +71,12 @@ By default, the script will look for a file called `Gruntfile`, which contain ho
 
 The `tasks` collection indicates which tasks that available to execute. Based by above recipe, you could run :
 
-	grunt --read_home_dir
+	vendor/bin/grunt --read_home_dir
 
 Above command will execute `ls` on all remote machines defined in `hosts` parameter. You could tell Grunt to run the task on specific host(s) by appending the host nickname right after the task :
 
-	grunt --read_home_dir staging
-	grunt --print_php_info staging,production
+	vendor/bin/grunt --read_home_dir staging
+	vendor/bin/grunt --print_php_info staging,production
 
 Grunt also will automatically create some abbreviation for your task. You can do "grunt" to see all the available tasks.
 
