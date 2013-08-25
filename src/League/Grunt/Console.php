@@ -180,7 +180,9 @@ class Console
                 if ($taskFunction instanceof \Closure) {
                     $taskInformation = \ReflectionFunction::export($gruntHolder['tasks'][$taskName], TRUE);
 
-                    if (strpos($taskInformation, '<required> $g') !== FALSE) {
+                    if (strpos($taskInformation, '<required> $g') !== FALSE ||
+                        strpos($taskInformation, '<required> League\Grunt\Grunt $g') !== FALSE
+                    ) {
                         self::setTask($taskName, new \ReflectionFunction($taskFunction));
                     }
                 }
