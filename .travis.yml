@@ -12,6 +12,9 @@ before_script:
   - php -m | grep ssh2
   - sudo useradd shunt
   - sudo passwd shunt < .shuntpwd
+  - sudo mkdir /home/shunt
+  - sudo chown shunt:shunt /home/shunt
+  - sudo usermod -d /home/shunt shunt
   - composer install
 
 script: phpunit --configuration travis.xml.dist

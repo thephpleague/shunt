@@ -20,7 +20,7 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
     public function testApplicationLifeCycle()
     {
         // run the command application
-        $recipe = include __DIR__.'/../Stubs/Shuntfile';
+        $recipe = include realpath(__DIR__.'/../Stubs/Shuntfile');
 		$shuntApp = new Application($recipe, true);
 		$applicationTester = new ApplicationTester($shuntApp);
 
