@@ -10,8 +10,8 @@ before_script:
   - pecl install -f ssh2 < .noninteractive
   - echo "extension=ssh2.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"`
   - php -m | grep ssh2
-  - sudo useradd grunt
-  - sudo passwd grunt < .gruntpwd
+  - sudo useradd shunt
+  - sudo passwd shunt < .shuntpwd
   - composer install
 
-script: phpunit
+script: phpunit --configuration travis.xml.dist

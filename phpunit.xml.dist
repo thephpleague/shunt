@@ -10,46 +10,18 @@
 	stopOnIncomplete="false"
 	stopOnSkipped="false">
 	<logging>
-        <log type="coverage-clover" target="/tmp/coverage.xml"/>
         <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
     </logging>
-    <listeners>
-        <listener class="League\PHPUnitCoverageListener\Listener">
-            <arguments>
-                <array>
-                    <element key="namespace">
-                        <string>League\Grunt</string>
-                    </element>
-                    <element key="repo_token">
-                        <string>YjplhynehgFoWOpOFiNwcm7tIRZepoBsw</string>
-                    </element>
-                    <element key="target_url">
-                        <string>https://coveralls.io/api/v1/jobs</string>
-                    </element>
-                    <element key="printer">
-                      <object class="League\PHPUnitCoverageListener\Printer\StdOut"/>
-                    </element>
-                    <element key="hook">
-                      <object class="League\PHPUnitCoverageListener\Hook\Travis"/>
-                    </element>
-                    <element key="coverage_dir">
-                        <string>/tmp</string>
-                    </element>
-                </array>
-            </arguments>
-        </listener>
-    </listeners>
 	<testsuites>
-		<testsuite name="Grunt Test Suite">
-			<directory suffix="Test.php">src/League/Grunt/Tests</directory>
+		<testsuite name="Shunt Test Suite">
+			<directory suffix="Test.php">src/League/Shunt/Tests</directory>
 		</testsuite>
 	</testsuites>
 	<filter>
-        <whitelist addUncoveredFilesFromWhitelist="false">
-            <directory suffix=".php">src</directory>
+        <whitelist addUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">src/League</directory>
 		    <exclude>
-		      <directory suffix=".php">src/League/Grunt/Tests</directory>
-		      <file>src/League/Grunt/Console.php</file>
+		      <directory suffix=".php">src/League/Shunt/Tests</directory>
 		    </exclude>
         </whitelist>
 	</filter>

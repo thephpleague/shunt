@@ -1,8 +1,8 @@
-#Grunt
+#Shunt
 
 [![Build Status](https://secure.travis-ci.org/php-loep/grunt.png?branch=master)](http://travis-ci.org/php-loep/grunt) [![Dependencies Status](https://d2xishtp1ojlk0.cloudfront.net/d/6064030)](http://depending.in/php-loep/grunt) [![Coverage Status](https://coveralls.io/repos/php-loep/grunt/badge.png?branch=master)](https://coveralls.io/r/php-loep/grunt?branch=master) [![Latest Stable Version](https://poser.pugx.org/league/grunt/v/stable.png)](https://packagist.org/packages/league/grunt) [![Total Downloads](https://poser.pugx.org/league/grunt/downloads.png)](https://packagist.org/packages/league/grunt)
 
-Inspired by Ruby's Capistrano, Grunt is PHP library for executing commands in parallel on multiple remote machines, via SSH. Specifically, this library was written to simplify and automate deployment of PHP applications to distributed environments.
+Inspired by Ruby's Capistrano, Shunt is PHP library for executing commands in parallel on multiple remote machines, via SSH. Specifically, this library was written to simplify and automate deployment of PHP applications to distributed environments.
 
 ## Install
 
@@ -22,7 +22,7 @@ Via Composer
 
 ## Assumptions
 
-As opinionated as Ruby's Capistrano, Grunt has very firm ideas about how things ought to be done, and tries to force those ideas on you. Some of the assumptions behind these opinions are:
+As opinionated as Ruby's Capistrano, Shunt has very firm ideas about how things ought to be done, and tries to force those ideas on you. Some of the assumptions behind these opinions are:
 
 * You are using SSH to access the remote servers.
 * You either have the same password to all target machines, or you have public keys in place to allow passwordless access to them.
@@ -30,16 +30,16 @@ As opinionated as Ruby's Capistrano, Grunt has very firm ideas about how things 
 Do not expect these assumptions to change.
 
 ## Usage
-In general, you'll use Grunt as follows:
+In general, you'll use Shunt as follows:
 
-* Create a recipe file (`Gruntfile`).
-* Use the `grunt` script to execute your recipe.
+* Create a recipe file (`Shuntfile`).
+* Use the `shunt` script to execute your recipe.
 
-From the root folder of your composer-based project, use the grunt script as follows:
+From the root folder of your composer-based project, use the Shunt script as follows:
 
-	vendor/bin/grunt --some_task
+	vendor/bin/shunt some_task some_host,other_host
 
-By default, the script will look for a file called `Gruntfile`, which contain hosts information, credential and your tasks. Here the structure of `Gruntfile` :
+By default, the script will look for a file called `Shuntfile`, which contain hosts information, credential and your tasks. Here the structure of `Shuntfile` :
 
 	<?php
 
@@ -52,7 +52,7 @@ By default, the script will look for a file called `Gruntfile`, which contain ho
 		),
 
 		'auth' => array(
-			'username' => 'grunt',
+			'username' => 'shunt',
 			'password' => 'hearmyroar',
 			'pubkeyfile' => NULL,
 			'privkeyfile' => NULL,
@@ -60,25 +60,25 @@ By default, the script will look for a file called `Gruntfile`, which contain ho
 		),
 
 		'tasks' => array(
-			'read_home_dir' => function($g) {
-				$g->run('ls');
+			'read_home_dir' => function($s) {
+				$s->run('ls');
 			},
-			'print_php_info' => function($g) {
-				$g->run('php -i');
+			'print_php_info' => function($s) {
+				$s->run('php -i');
 			}
 		),
 	);
 
 The `tasks` collection indicates which tasks that available to execute. Based by above recipe, you could run :
 
-	vendor/bin/grunt --read_home_dir
+	vendor/bin/shunt read_home_dir *
 
-Above command will execute `ls` on all remote machines defined in `hosts` parameter. You could tell Grunt to run the task on specific host(s) by appending the host nickname right after the task :
+Above command will execute `ls` on all remote machines defined in `hosts` parameter. You could tell Shunt to run the task on specific host(s) by appending the host nickname right after the task :
 
-	vendor/bin/grunt --read_home_dir staging
-	vendor/bin/grunt --print_php_info staging,production
+	vendor/bin/grunt read_home_dir staging
+	vendor/bin/grunt print_php_info staging,production
 
-Grunt also will automatically create some abbreviation for your task. You can do "grunt" to see all the available tasks.
+Shunt also will automatically create some abbreviation for your task. You can execute `list` commant to see all the available tasks and available hosts.
 
 Changelog
 ---------
@@ -99,5 +99,5 @@ Bugs and feature request are tracked on [GitHub](https://github.com/php-loep/gru
 License
 -------
 
-Grunt is released under the MIT License. See the bundled
+Shunt is released under the MIT License. See the bundled
 [LICENSE](https://github.com/php-loep/grunt/blob/master/LICENSE) file for details.

@@ -1,8 +1,8 @@
 {
-    "name": "league/grunt",
+    "name": "league/shunt",
     "description": "PHP library for executing commands in parallel on multiple remote machines, via SSH",
     "keywords": ["ssh"],
-    "homepage": "https://github.com/php-loep/grunt",
+    "homepage": "https://github.com/php-loep/shunt",
     "license": "MIT",
     "authors": [
         {
@@ -10,15 +10,25 @@
             "email": "toopay@taufanaditya.com"
         }
     ],
+    "support": {
+        "issues": "https://github.com/php-loep/shunt/issues"
+    },
     "require": {
         "php": ">=5.3.3",
-        "ext-ssh2": ">=0.11.2"
+        "ext-ssh2": ">=0.12",
+        "symfony/console": "~2.3",
+        "symfony/finder": "~2.2",
+        "symfony/process": "~2.1@dev"
     },
     "require-dev": {
+        "phpunit/phpunit": "~3.7.10",
         "league/phpunit-coverage-listener": "~1.0"
     },
-    "autoload": {
-        "psr-0": { "League\\Grunt": "src/" }
+    "replace": {
+        "league/grunt": "*"
     },
-    "bin": ["bin/grunt"]
+    "autoload": {
+        "psr-0": { "League\\Shunt": "src/" }
+    },
+    "bin": ["bin/shunt"]
 }
