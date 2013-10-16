@@ -16,9 +16,10 @@ use League\Shunt\Tests\Mocks\MockApplication;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Component\Console\Output\OutputInterface;
+use PHPUnit_Framework_TestCase;
 use ReflectionFunction;
 
-class ArbitraryCommandTest extends \PHPUnit_Framework_TestCase
+class ArbitraryCommandTest extends PHPUnit_Framework_TestCase
 {
     public function testExecuteAboutCommand()
     {

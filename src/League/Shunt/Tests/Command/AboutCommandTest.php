@@ -14,8 +14,9 @@ namespace League\Shunt\Tests\Command;
 use League\Shunt\Command\AboutCommand;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
+use PHPUnit_Framework_TestCase;
 
-class AboutCommandTest extends \PHPUnit_Framework_TestCase
+class AboutCommandTest extends PHPUnit_Framework_TestCase
 {
     public function testExecuteAboutCommand()
     {

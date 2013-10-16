@@ -1,0 +1,31 @@
+<?php
+
+return array(
+
+	'hosts' => array(
+		'mirror' => 'localhost'
+	),
+
+	'auth' => array(
+		'username' => 'shunt',
+		'password' => 'hearmyroar',
+		'pubkeyfile' => NULL,
+		'privkeyfile' => NULL,
+		'passphrase' => NULL,
+	),
+
+	'tasks' => array(
+		'read_home_dir' => function(League\Shunt\Shunt $s) {
+			// Read home directory
+			$s->run('ls');
+		},
+		'print_php_info' => function(League\Shunt\Shunt $s) {
+			// Ouput current PHP Info
+			$s->run('php -i');
+		},
+		'whoami' => function(League\Shunt\Shunt $s) {
+			// Get current user
+			$s->run('whoami');
+		}
+	),
+);

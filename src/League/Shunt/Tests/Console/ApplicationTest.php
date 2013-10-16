@@ -13,9 +13,10 @@ namespace League\Shunt\Tests\Console;
 
 use League\Shunt\Console\Application;
 use Symfony\Component\Console\Tester\ApplicationTester;
+use PHPUnit_Framework_TestCase;
 use Exception;
 
-class ApplicationTest extends \PHPUnit_Framework_TestCase
+class ApplicationTest extends PHPUnit_Framework_TestCase
 {
     public function testApplicationLifeCycle()
     {
