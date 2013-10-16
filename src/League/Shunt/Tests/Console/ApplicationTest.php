@@ -36,6 +36,9 @@ class ApplicationTest extends PHPUnit_Framework_TestCase
         $this->assertContains('whoami', $applicationTester->getDisplay());
 
         // Check shunt task life-cycle
+        $applicationTester->run(array('command' => 'whoami', 'host' => '.'));
+        $this->assertContains('localhost > shunt', $applicationTester->getDisplay());
+
         $applicationTester->run(array('command' => 'whoami', 'host' => 'mirror'));
         $this->assertContains('localhost > shunt', $applicationTester->getDisplay());
 

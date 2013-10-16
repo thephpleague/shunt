@@ -67,10 +67,10 @@ class Application extends BaseApplication implements ApplicationInterface
     /**
      * Constructor
      *
-     * @param array Shunt Recipe
+     * @param array Shunt Recipes
      * @param bool  Whether to run as test or not
      */
-    public function __construct($recipe = array(), $inTest = false)
+    public function __construct($recipes = array(), $inTest = false)
     {
         if (function_exists('ini_set')) {
             ini_set('xdebug.show_exception_trace', false);
@@ -85,8 +85,8 @@ class Application extends BaseApplication implements ApplicationInterface
 
         // Set initial params
         $this->inTest = $inTest;
-        if ( ! empty($recipe)) {
-            $this->recipe = $recipe;
+        if ( ! empty($recipes)) {
+            $this->recipes = $recipes;
         }
 
         // Collect data from recipe
@@ -219,28 +219,28 @@ class Application extends BaseApplication implements ApplicationInterface
      */
     public function collectData()
     {
-        $shuntHolder = $this->recipe;
+        $recipes = $this->recipes;
 
         // @codeCoverageIgnoreStart
-        if (empty($this->recipe)) {
+        if (empty($recipes)) {
             $currentDir = (isset($_SERVER['PWD'])) ? realpath($_SERVER['PWD']) : getcwd();
 
             if (($holder = $currentDir . DIRECTORY_SEPARATOR . Shunt::holder()) && @file_exists($holder)) {
-                $shuntHolder = include $holder;
+                $recipes = include $holder;
             }
         }
         // @codeCoverageIgnoreEnd
 
         // Set the hosts
-        if (array_key_exists(Shunt::KEY_HOSTS, $shuntHolder)) {
-            foreach ($shuntHolder[Shunt::KEY_HOSTS] as $nickServer => $server) {
+        if (array_key_exists(Shunt::KEY_HOSTS, $recipes)) {
+            foreach ($recipes[Shunt::KEY_HOSTS] as $nickServer => $server) {
                 $this->setHost($nickServer, $server);
             }
         }
 
         // Set the auth credential
-        if (array_key_exists(Shunt::KEY_AUTH, $shuntHolder)) {
-            $credential = array_filter($shuntHolder[Shunt::KEY_AUTH]);
+        if (array_key_exists(Shunt::KEY_AUTH, $recipes)) {
+            $credential = array_filter($recipes[Shunt::KEY_AUTH]);
             // @codeCoverageIgnoreStart
             if (array_key_exists(Shunt::KEY_AUTH_PASSWORD, $credential)) {
                 $this->setAuth(Auth::PASSWORD, $credential);
@@ -251,11 +251,11 @@ class Application extends BaseApplication implements ApplicationInterface
         }
 
         // Set the available tasks
-        if (array_key_exists(Shunt::KEY_TASKS, $shuntHolder)) {
-            foreach ($shuntHolder[Shunt::KEY_TASKS] as $taskName => $taskFunction) {
+        if (array_key_exists(Shunt::KEY_TASKS, $recipes)) {
+            foreach ($recipes[Shunt::KEY_TASKS] as $taskName => $taskFunction) {
                 // Validate each task
                 if ($taskFunction instanceof Closure) {
-                    $taskInformation = ReflectionFunction::export($shuntHolder[Shunt::KEY_TASKS][$taskName], TRUE);
+                    $taskInformation = ReflectionFunction::export($recipes[Shunt::KEY_TASKS][$taskName], TRUE);
 
                     if (strpos($taskInformation, Shunt::SIGNATURE_VAR) !== FALSE ||
                         strpos($taskInformation, Shunt::SIGNATURE_CLASS) !== FALSE ||
@@ -339,7 +339,11 @@ class Application extends BaseApplication implements ApplicationInterface
             $hosts = array();
             $nicknames = explode(',', $input->getArgument('host'));
             foreach ($nicknames as $nick) {
-                if (array_key_exists($nick, $this->getHosts())) {
+                if ($nick == 'all' || $nick == '.') {
+                    // Get all hosts
+                    $hosts = array_keys($this->getHosts());
+                    break;
+                } elseif (array_key_exists($nick, $this->getHosts())) {
                     $hosts[] = $nick;
                 } else {
                     throw new InvalidArgumentException('Invalid host:'.$nick);
