@@ -34,7 +34,7 @@ class Auth implements AuthInterface
      */
     public function __construct($credential = array())
     {
-        if (empty($credential)) $credential = array('auth_none' => array('undefined'));
+        if (empty($credential)) $credential = array('auth_none' => array('username' => 'root'));
         $this->credential = $credential;
     }
 

@@ -52,7 +52,7 @@ class Application extends BaseApplication implements ApplicationInterface
     /**
      * @var array Collected hosts information
      */
-    protected $hosts = array('local' => 'localhost');
+    protected $hosts = array();
 
     /**
      * @var array Collected authentication information
@@ -331,12 +331,11 @@ class Application extends BaseApplication implements ApplicationInterface
      */
     public function getHostNames(InputInterface $input)
     {
-        $hosts = array('local');
+        $hosts = array();
 
         $input->bind($this->getDefaultInputDefinition());
 
         if ($input->hasArgument('host')) {
-            $hosts = array();
             $nicknames = explode(',', $input->getArgument('host'));
             foreach ($nicknames as $nick) {
                 if ($nick == 'all' || $nick == '.') {
