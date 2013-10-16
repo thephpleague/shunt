@@ -20,9 +20,14 @@ Via Composer
 * libssh2
 * ssh2.so
 
+## Additional Features
+
+* Secure copy (SCP) support
+* Secure FTP (SFTP) support
+
 ## Assumptions
 
-As opinionated as Ruby's Capistrano, Shunt has very firm ideas about how things ought to be done, and tries to force those ideas on you. Some of the assumptions behind these opinions are:
+Shunt has very firm ideas about how things ought to be done, and tries to force those ideas on you. Some of the assumptions behind these opinions are:
 
 * You are using SSH to access the remote servers.
 * You either have the same password to all target machines, or you have public keys in place to allow passwordless access to them.
@@ -65,20 +70,40 @@ By default, the script will look for a file called `Shuntfile`, which contain ho
 			},
 			'print_php_info' => function($s) {
 				$s->run('php -i');
+			},
+			'upload_foo_source' => function($s) {
+				$s->sftp()->mkdir('source');
+				$s->scp()->put('foo', 'source/foo');
 			}
 		),
 	);
 
-The `tasks` collection indicates which tasks that available to execute. Based by above recipe, you could run :
+The `tasks` collection indicates which tasks that available to execute. You can execute `list` commant to see all the available tasks and available hosts. Based by above recipes, you could run :
 
-	vendor/bin/shunt read_home_dir *
+	vendor/bin/shunt read_home_dir .
 
 Above command will execute `ls` on all remote machines defined in `hosts` parameter. You could tell Shunt to run the task on specific host(s) by appending the host nickname right after the task :
 
 	vendor/bin/shunt read_home_dir staging
 	vendor/bin/shunt print_php_info staging,production
 
-Shunt also will automatically create some abbreviation for your task. You can execute `list` commant to see all the available tasks and available hosts.
+As you may already notice, you could easily access `SCP` and `SFTP` instance by calling `scp()` or `sftp()` method within your task. Bellow table shows available APIs for both `SCP` and `SFTP` instances :
+
+| Type | Method Signature | Description
+| :---: | :---: | :---: |
+| `SCP` | `put($localFile = '', $remoteFile = '')` | Send a file from local to remote path |
+| `SCP` | `get($remoteFile = '', $localFile = '')` | Get a file from remote to local path |
+| `SFTP` | `chmod($filename = '', $mode = 0644)` | Attempts to change the mode of the specified file to that given in mode. |
+| `SFTP` | `lstat($path = '')` | Stats a symbolic link on the remote filesystem without following the link. |
+| `SFTP` | `stat($path = '')` | Stats a file on the remote filesystem following any symbolic links. |
+| `SFTP` | `mkdir($dirname = '', $mode = 0777, $recursive = false)` | Creates a directory on the remote file server with permissions set to mode. |
+| `SFTP` | `rmdir($dirname = '')` | Removes a directory from the remote file server. |
+| `SFTP` | `symlink($target = '',$link = '')` | Creates a symbolic link named link on the remote filesystem pointing to target. |
+| `SFTP` | `readlink($link = '')` | Returns the target of a symbolic link. |
+| `SFTP` | `realpath($filename = '')` | Translates filename into the effective real path on the remote filesystem. |
+| `SFTP` | `rename($from = '', $to = '')` | Renames a file on the remote filesystem. |
+| `SFTP` | `unlink($filename = '')` | Deletes a file on the remote filesystem. |
+
 
 Changelog
 ---------
