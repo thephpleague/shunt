@@ -87,22 +87,22 @@ Above command will execute `ls` on all remote machines defined in `hosts` parame
 	vendor/bin/shunt read_home_dir staging
 	vendor/bin/shunt print_php_info staging,production
 
-As you may already notice, you could easily access `SCP` and `SFTP` instance by calling `scp()` or `sftp()` method within your task. Bellow table shows available APIs for both `SCP` and `SFTP` instances :
+As you may already notice, you could easily access **SCP** and **SFTP** instance by calling `scp()` or `sftp()` method within your task. Bellow table shows available APIs for both **SCP** and **SFTP** instances :
 
 | Type | Method Signature | Description
 | :---: | :---: | :---: |
-| `SCP` | `put($localFile = '', $remoteFile = '')` | Send a file from local to remote path |
-| `SCP` | `get($remoteFile = '', $localFile = '')` | Get a file from remote to local path |
-| `SFTP` | `chmod($filename = '', $mode = 0644)` | Attempts to change the mode of the specified file to that given in mode. |
-| `SFTP` | `lstat($path = '')` | Stats a symbolic link on the remote filesystem without following the link. |
-| `SFTP` | `stat($path = '')` | Stats a file on the remote filesystem following any symbolic links. |
-| `SFTP` | `mkdir($dirname = '', $mode = 0777, $recursive = false)` | Creates a directory on the remote file server with permissions set to mode. |
-| `SFTP` | `rmdir($dirname = '')` | Removes a directory from the remote file server. |
-| `SFTP` | `symlink($target = '',$link = '')` | Creates a symbolic link named link on the remote filesystem pointing to target. |
-| `SFTP` | `readlink($link = '')` | Returns the target of a symbolic link. |
-| `SFTP` | `realpath($filename = '')` | Translates filename into the effective real path on the remote filesystem. |
-| `SFTP` | `rename($from = '', $to = '')` | Renames a file on the remote filesystem. |
-| `SFTP` | `unlink($filename = '')` | Deletes a file on the remote filesystem. |
+| **SCP** | `put($localFile = '', $remoteFile = '')` | Send a file from local to remote path |
+| **SCP** | `get($remoteFile = '', $localFile = '')` | Get a file from remote to local path |
+| **SFTP** | `chmod($filename = '', $mode = 0644)` | Attempts to change the mode of the specified file to that given in mode. |
+| **SFTP** | `lstat($path = '')` | Stats a symbolic link on the remote filesystem without following the link. |
+| **SFTP** | `stat($path = '')` | Stats a file on the remote filesystem following any symbolic links. |
+| **SFTP** | `mkdir($dirname = '', $mode = 0777, $recursive = false)` | Creates a directory on the remote file server with permissions set to mode. |
+| **SFTP** | `rmdir($dirname = '')` | Removes a directory from the remote file server. |
+| **SFTP** | `symlink($target = '',$link = '')` | Creates a symbolic link named link on the remote filesystem pointing to target. |
+| **SFTP** | `readlink($link = '')` | Returns the target of a symbolic link. |
+| **SFTP** | `realpath($filename = '')` | Translates filename into the effective real path on the remote filesystem. |
+| **SFTP** | `rename($from = '', $to = '')` | Renames a file on the remote filesystem. |
+| **SFTP** | `unlink($filename = '')` | Deletes a file on the remote filesystem. |
 
 
 Changelog
