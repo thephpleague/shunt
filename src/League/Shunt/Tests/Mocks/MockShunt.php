@@ -18,12 +18,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class MockShunt implements ShuntInterface
 {
-	/**
+    /**
      * @{inheritDoc}
      */
     public static function version()
     {
-    	return self::VERSION;
+        return self::VERSION;
     }
 
     /**
@@ -31,7 +31,7 @@ class MockShunt implements ShuntInterface
      */
     public static function holder()
     {
-    	return self::HOLDER;
+        return self::HOLDER;
     }
 
     /**
@@ -39,7 +39,7 @@ class MockShunt implements ShuntInterface
      */
     public function __construct(SessionInterface $session, AuthInterface $auth, OutputInterface $output)
     {
-    	// Do nothing
+        // Do nothing
     }
 
     /**
@@ -47,7 +47,7 @@ class MockShunt implements ShuntInterface
      */
     public function getSession()
     {
-    	// Do nothing
+        // Do nothing
     }
 
     /**
@@ -55,7 +55,7 @@ class MockShunt implements ShuntInterface
      */
     public function getAuth()
     {
-    	// Do nothing
+        // Do nothing
     }
 
     /**
@@ -63,7 +63,7 @@ class MockShunt implements ShuntInterface
      */
     public function sftp()
     {
-    	// Do nothing
+        // Do nothing
     }
 
     /**
@@ -71,7 +71,7 @@ class MockShunt implements ShuntInterface
      */
     public function scp()
     {
-    	// Do nothing
+        // Do nothing
     }
 
     /**
@@ -79,7 +79,7 @@ class MockShunt implements ShuntInterface
      */
     public function inProcess()
     {
-    	// Do nothing
+        // Do nothing
     }
 
     /**
@@ -87,7 +87,7 @@ class MockShunt implements ShuntInterface
      */
     public function runOpen($command)
     {
-    	// Do nothing
+        // Do nothing
     }
 
     /**
@@ -95,7 +95,7 @@ class MockShunt implements ShuntInterface
      */
     public function runClose($command = null)
     {
-    	// Do nothing
+        // Do nothing
     }
 
     /**
@@ -103,7 +103,7 @@ class MockShunt implements ShuntInterface
      */
     public function run($command, $retval = FALSE)
     {
-    	return $command;
+        return $command;
     }
 
     /**
@@ -111,7 +111,7 @@ class MockShunt implements ShuntInterface
      */
     public static function registerErrorHandler()
     {
-    	// Do nothing
+        // Do nothing
     }
 
     /**
@@ -119,6 +119,6 @@ class MockShunt implements ShuntInterface
      */
     public static function handleError($errno, $errstr, $errfile, $errline, array $errcontext)
     {
-    	// Do nothing
+        // Do nothing
     }
 }

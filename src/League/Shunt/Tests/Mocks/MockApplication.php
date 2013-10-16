@@ -27,9 +27,10 @@ class MockApplication extends Application implements ApplicationInterface
      */
     public function getShunt()
     {
-    	$session = new Session('nowhere');
-    	$auth = new Auth(array());
-    	$output = new MockOutput();
+        $session = new Session('nowhere');
+        $auth = new Auth(array());
+        $output = new MockOutput();
+
         return new MockShunt($session, $auth, $output);
     }
 
