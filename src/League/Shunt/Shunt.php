@@ -14,6 +14,7 @@ namespace League\Shunt;
 use League\Shunt\Contracts\SessionInterface;
 use League\Shunt\Contracts\AuthInterface;
 use League\Shunt\Contracts\ShuntInterface;
+use League\Shunt\BaseObject;
 use League\Shunt\SCP;
 use League\Shunt\SFTP;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -24,7 +25,7 @@ use ErrorException, RuntimeException;
  *
  * @author Taufan Aditya <toopay@taufanaditya.com>
  */
-class Shunt implements ShuntInterface
+class Shunt extends BaseObject implements ShuntInterface
 {
     /**
      * @var object Shunt session
@@ -35,11 +36,6 @@ class Shunt implements ShuntInterface
      * @var object Shunt auth
      */
     protected $auth;
-
-    /**
-     * @var ConsoleOutput
-     */
-    protected $output;
 
     /**
      * @var bool
@@ -78,8 +74,8 @@ class Shunt implements ShuntInterface
     {
         self::registerErrorHandler();
 
-        // Set the output
-        $this->output = $output;
+        // Set the base object properties
+        parent::__construct($session, $output);
 
         $this->printOut('<info>Connecting...</info>');
         $this->printDebug('$session => '.var_export($session,true));
@@ -131,7 +127,7 @@ class Shunt implements ShuntInterface
      */
     public function sftp()
     {
-        return new SFTP($this->session);
+        return new SFTP($this->session, $this->output);
     }
 
      /**
@@ -139,7 +135,7 @@ class Shunt implements ShuntInterface
      */
     public function scp()
     {
-        return new SCP($this->session);
+        return new SCP($this->session, $this->output);
     }
 
     /**
@@ -189,7 +185,7 @@ class Shunt implements ShuntInterface
         $connection = $this->session->getConnection();
         $halt = FALSE;
 
-        $retval or $this->output->writeln('<comment>' . $host . '</comment> < <info>' . $command.'</info>');
+        $retval or $this->printOut('<comment>' . $host . '</comment> < <info>' . $command.'</info>');
 
         // Execute the command
         $stream = ssh2_exec($connection, $command);
@@ -214,17 +210,17 @@ class Shunt implements ShuntInterface
         fclose($stream);
 
         if ($halt) {
-            $this->output->writeln($resultErr);
-            $this->output->writeln('<error>Aborted</error>');
+            $this->printOut($resultErr);
+            $this->printOut('<error>Aborted</error>');
         } else {
             if ($resultDio !== '[OK]') {
                 $resultDioArray = array_filter(explode("\n", $resultDio));
 
                 foreach ($resultDioArray as $i => $resultDioLine) {
-                    $this->output->writeln((($i === 0) ? '<comment>'.$host.'</comment>' : '').' > <info>'.$resultDioLine.'</info>');
+                    $this->printOut((($i === 0) ? '<comment>'.$host.'</comment>' : str_pad(' ', strlen($host))).' > <info>'.$resultDioLine.'</info>');
                 }
             } else {
-                $this->output->writeln('<comment>'.$host.'</comment> > <info>'.$resultDio.'</info>');
+                $this->printOut('<comment>'.$host.'</comment> > <info>'.$resultDio.'</info>');
             }
         }
 
@@ -269,39 +265,5 @@ class Shunt implements ShuntInterface
     protected function getCommands()
     {
         return implode(self::COMMAND_SEPARATOR, $this->chainableCommand);
-    }
-
-    /**
-     * Print normal information
-     *
-     * @param string
-     */
-    private function printOut($message)
-    {
-        $this->output->writeln($message);
-    }
-
-    /**
-     * Print verbose information
-     *
-     * @param string
-     */
-    private function printVerbose($message)
-    {
-        if ($this->output->getVerbosity() >= OutputInterface::VERBOSITY_VERBOSE) {
-            $this->printOut($message);
-        }
-    }
-
-    /**
-     * Print debug information
-     *
-     * @param string
-     */
-    private function printDebug($message)
-    {
-        if ($this->output->getVerbosity() == OutputInterface::VERBOSITY_DEBUG) {
-            $this->printOut('[DEBUG] '.$message);
-        }
     }
 }

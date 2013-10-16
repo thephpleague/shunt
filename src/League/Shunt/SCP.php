@@ -13,6 +13,8 @@ namespace League\Shunt;
 
 use League\Shunt\Contracts\SCPInterface;
 use League\Shunt\Contracts\SessionInterface;
+use League\Shunt\BaseObject;
+use Symfony\Component\Console\Output\OutputInterface;
 use RuntimeException;
 
 /**
@@ -20,7 +22,7 @@ use RuntimeException;
  *
  * @author Taufan Aditya <toopay@taufanaditya.com>
  */
-class SCP implements SCPInterface
+class SCP extends BaseObject implements SCPInterface
 {
     /**
      * @var SessionInterface
@@ -31,10 +33,14 @@ class SCP implements SCPInterface
      * Constructor
      *
      * @param SessionInterface
+     * @param OutputInterface
      * @throws RuntimeException
      */
-    public function __construct(SessionInterface $session)
+    public function __construct(SessionInterface $session, OutputInterface $output)
     {
+        // Set the base object properties
+        parent::__construct($session, $output);
+
         if ( ! $session->valid()) throw new RuntimeException('SSH connection failed.');
 
         $this->session = $session;
@@ -45,7 +51,7 @@ class SCP implements SCPInterface
      */
     public function put($localFile = '', $remoteFile = '')
     {
-        return ssh2_scp_send($this->session->getConnection(), $localFile, $remoteFile);
+        return $this->doRun(__METHOD__, func_get_args(), ssh2_scp_send($this->session->getConnection(), $localFile, $remoteFile));
     }
 
    /**
@@ -53,6 +59,6 @@ class SCP implements SCPInterface
      */
     public function get($remoteFile = '', $localFile = '')
     {
-        return ssh2_scp_recv($this->session->getConnection(), $remoteFile, $localFile);
+        return $this->doRun(__METHOD__, func_get_args(), ssh2_scp_recv($this->session->getConnection(), $remoteFile, $localFile));
     }
 }
