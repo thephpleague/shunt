@@ -1,3 +1,4 @@
 Shuntfile
 phpunit.xml
+composer.lock
 /vendor
