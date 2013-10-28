@@ -178,8 +178,8 @@ class Shunt extends BaseObject implements ShuntInterface
             return $this;
         }
 
-        // Get the full-commands
-        $command = $this->getCommands();
+        // Get the full-commands then reset it
+        $command = $this->getCommands() and $this->resetCommands();
 
         $host = $this->session->getHost();
         $connection = $this->session->getConnection();
@@ -265,5 +265,13 @@ class Shunt extends BaseObject implements ShuntInterface
     protected function getCommands()
     {
         return implode(self::COMMAND_SEPARATOR, $this->chainableCommand);
+    }
+
+    /**
+     * Reset commands
+     */
+    protected function resetCommands()
+    {
+        $this->chainableCommand = array();
     }
 }
