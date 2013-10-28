@@ -210,8 +210,11 @@ class Shunt extends BaseObject implements ShuntInterface
         fclose($stream);
 
         if ($halt) {
-            $this->printOut($resultErr);
-            $this->printOut('<error>Aborted</error>');
+            $resultErrArray = array_filter(explode("\n", $resultErr));
+            foreach ($resultErrArray as $x => $resultErrLine) {
+                $this->printOut((($x === 0) ? '<comment>'.$host.'</comment>' : str_pad(' ', strlen($host))).' > <info>'.$resultErrLine.'</info>');
+            }
+            if (count($resultErrArray) == 1) $this->printOut('<error>Aborted</error>');
         } else {
             if ($resultDio !== '[OK]') {
                 $resultDioArray = array_filter(explode("\n", $resultDio));
