@@ -2,7 +2,7 @@
     "name": "league/shunt",
     "description": "PHP library for executing commands in parallel on multiple remote machines, via SSH",
     "keywords": ["ssh"],
-    "homepage": "https://github.com/php-loep/shunt",
+    "homepage": "https://github.com/thephpleague/shunt",
     "license": "MIT",
     "authors": [
         {
@@ -11,7 +11,7 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/php-loep/shunt/issues"
+        "issues": "https://github.com/thephpleague/shunt/issues"
     },
     "require": {
         "php": ">=5.3.3",

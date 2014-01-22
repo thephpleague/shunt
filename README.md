@@ -1,8 +1,8 @@
 #Shunt
 
-[![Teaser](https://i.imgur.com/isgocwl.png?1)](https://github.com/php-loep/shunt)
+[![Teaser](https://i.imgur.com/isgocwl.png?1)](https://github.com/thephpleague/shunt)
 
-[![Build Status](https://secure.travis-ci.org/php-loep/shunt.png?branch=master)](http://travis-ci.org/php-loep/shunt) [![Dependencies Status](https://d2xishtp1ojlk0.cloudfront.net/d/6064030)](http://depending.in/php-loep/shunt) [![Coverage Status](https://coveralls.io/repos/php-loep/shunt/badge.png?branch=master)](https://coveralls.io/r/php-loep/shunt?branch=master) [![Latest Stable Version](https://poser.pugx.org/league/shunt/v/stable.png)](https://packagist.org/packages/league/shunt) [![Total Downloads](https://poser.pugx.org/league/shunt/downloads.png)](https://packagist.org/packages/league/shunt)
+[![Build Status](https://secure.travis-ci.org/thephpleague/shunt.png?branch=master)](http://travis-ci.org/thephpleague/shunt) [![Dependencies Status](https://depending.in/thephpleague/shunt.png)](http://depending.in/thephpleague/shunt) [![Coverage Status](https://coveralls.io/repos/thephpleague/shunt/badge.png?branch=master)](https://coveralls.io/r/thephpleague/shunt?branch=master) [![Latest Stable Version](https://poser.pugx.org/league/shunt/v/stable.png)](https://packagist.org/packages/league/shunt) [![Total Downloads](https://poser.pugx.org/league/shunt/downloads.png)](https://packagist.org/packages/league/shunt)
 
 Inspired by Ruby's Capistrano, Shunt is PHP library for executing commands in parallel on multiple remote machines, via SSH. Specifically, this library was written to simplify and automate deployment of PHP applications to distributed environments.
 
@@ -110,21 +110,21 @@ As you may already notice, you could easily access **SCP** and **SFTP** instance
 Changelog
 ---------
 
-[See the changelog file](https://github.com/php-loep/shunt/blob/master/CHANGELOG.md)
+[See the changelog file](https://github.com/thephpleague/shunt/blob/master/CHANGELOG.md)
 
 Contributing
 ------------
 
-Please see [CONTRIBUTING](https://github.com/php-loep/shunt/blob/master/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/thephpleague/shunt/blob/master/CONTRIBUTING.md) for details.
 
 Support
 -------
 
-Bugs and feature request are tracked on [GitHub](https://github.com/php-loep/shunt/issues)
+Bugs and feature request are tracked on [GitHub](https://github.com/thephpleague/shunt/issues)
 
 
 License
 -------
 
 Shunt is released under the MIT License. See the bundled
-[LICENSE](https://github.com/php-loep/shunt/blob/master/LICENSE) file for details.
+[LICENSE](https://github.com/thephpleague/shunt/blob/master/LICENSE) file for details.

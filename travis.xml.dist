@@ -21,7 +21,7 @@
                         <string>League\Shunt</string>
                     </element>
                     <element key="repo_token">
-                        <string>ytpFwn9e8vqHqLz47MDeauZZ5lInC1T6m</string>
+                        <string>tB39hlzYquMjueMhIx8TTlaYAnj2OptP1</string>
                     </element>
                     <element key="target_url">
                         <string>https://coveralls.io/api/v1/jobs</string>
