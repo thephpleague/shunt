@@ -80,7 +80,7 @@ By default, the script will look for a file called `Shuntfile`, which contain ho
 		),
 	);
 
-The `tasks` collection indicates which tasks that available to execute. You can execute `list` commant to see all the available tasks and available hosts. Based by above recipes, you could run :
+The `tasks` collection indicates which tasks that available to execute. You can execute `list` command to see all the available tasks and available hosts. Based by above recipes, you could run :
 
 	vendor/bin/shunt read_home_dir .
 
