@@ -20,7 +20,7 @@ return array(
 			$s->run('ls');
 		},
 		'print_php_info' => function(League\Shunt\Shunt $s) {
-			// Ouput current PHP Info
+			// Output current PHP Info
 			$s->run('php -i');
 		},
 		'whoami' => function(League\Shunt\Shunt $s) {
