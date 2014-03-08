@@ -2,9 +2,9 @@
 
 [![Teaser](https://i.imgur.com/isgocwl.png?1)](https://github.com/thephpleague/shunt)
 
-[![Build Status](https://secure.travis-ci.org/thephpleague/shunt.png?branch=master)](http://travis-ci.org/thephpleague/shunt) [![Dependencies Status](https://depending.in/thephpleague/shunt.png)](http://depending.in/thephpleague/shunt) [![Coverage Status](https://coveralls.io/repos/thephpleague/shunt/badge.png?branch=master)](https://coveralls.io/r/thephpleague/shunt?branch=master) [![Latest Stable Version](https://poser.pugx.org/league/shunt/v/stable.png)](https://packagist.org/packages/league/shunt) [![Total Downloads](https://poser.pugx.org/league/shunt/downloads.png)](https://packagist.org/packages/league/shunt)
+[![Build Status](https://secure.travis-ci.org/thephpleague/shunt.png?branch=master)](http://travis-ci.org/thephpleague/shunt) [![Dependencies Status](https://depending.in/thephpleague/shunt.png)](https://depending.in/thephpleague/shunt) [![Coverage Status](https://coveralls.io/repos/thephpleague/shunt/badge.png?branch=master)](https://coveralls.io/r/thephpleague/shunt?branch=master) [![Latest Stable Version](https://poser.pugx.org/league/shunt/v/stable.png)](https://packagist.org/packages/league/shunt) [![Total Downloads](https://poser.pugx.org/league/shunt/downloads.png)](https://packagist.org/packages/league/shunt)
 
-Inspired by Ruby's Capistrano, Shunt is PHP library for executing commands in parallel on multiple remote machines, via SSH. Specifically, this library was written to simplify and automate deployment of PHP applications to distributed environments.
+Inspired by Ruby's Capistrano, Shunt is PHP library for executing commands on multiple remote machines, via SSH. Specifically, this library was written to simplify and automate deployment of PHP applications to distributed environments.
 
 ## Install
 
