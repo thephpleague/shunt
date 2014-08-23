@@ -79,6 +79,9 @@ class Auth implements AuthInterface
         } elseif (array_key_exists(self::PASSWORD, $credential)) {
             $type = self::PASSWORD;
             $data = $credential[self::PASSWORD];
+        } elseif (array_key_exists(self::AGENT, $credential)) {
+            $type = self::AGENT;
+            $data = $credential[self::AGENT];
         } else {
             $type = self::NONE;
             $data = isset($credential[self::NONE]) ? $credential[self::NONE] : array();
