@@ -58,6 +58,14 @@ class AuthTest extends PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('auth_password', $auth->getCredential());
     }
 
+    public function testGetCredentialAuthAgent()
+    {
+        $credential = array('username' => 'shunt');
+        $auth = new Auth(array('auth_agent' => $credential));
+
+        $this->assertArrayHasKey('auth_agent', $auth->getCredential());
+    }
+
     public function testParseCredential()
     {
         // Auth pubkey test
