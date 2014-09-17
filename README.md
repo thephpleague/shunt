@@ -53,9 +53,9 @@ By default, the script will look for a file called `Shuntfile`, which contain ho
 	return array(
 
 		'hosts' => array(
-			'staging' => 'staging.domain.com'
-			'repro' => 'backup.domain.com'
-			'production' => 'production.domain.com'
+			'staging' => 'staging.domain.com',
+			'repro' => 'backup.domain.com',
+			'production' => 'production.domain.com',
 		),
 
 		'auth' => array(
