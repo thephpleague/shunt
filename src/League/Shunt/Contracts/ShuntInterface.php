@@ -114,11 +114,12 @@ interface ShuntInterface
     /**
      * Shunt runner
      *
-     * @param  string $command Command to execute
-     * @param  bool   $retval  Return value
-     * @return mixed  $retval or null
+     * @param  string   $command       Command to execute
+     * @param  bool     $retval        Return value
+     * @param  callable $resultHandler Callback to handle the command's result
+     * @return mixed    $retval        or null
      */
-    public function run($command, $retval = FALSE);
+    public function run($command, $retval = FALSE, callable $resultHandler = null);
 
     /**
      * Register error handler
