@@ -101,7 +101,7 @@ class MockShunt implements ShuntInterface
     /**
      * @{inheritDoc}
      */
-    public function run($command, $retval = FALSE)
+    public function run($command, $retval = FALSE, callable $resultHandler = null)
     {
         return $command;
     }
