@@ -1,5 +1,6 @@
 {
     "name": "league/shunt",
+    "abandoned": true,
     "description": "PHP library for executing commands in parallel on multiple remote machines, via SSH",
     "keywords": ["ssh"],
     "homepage": "https://github.com/thephpleague/shunt",
