@@ -246,6 +246,8 @@ class Application extends BaseApplication implements ApplicationInterface
                 $this->setAuth(Auth::PASSWORD, $credential);
             } elseif (array_key_exists(Shunt::KEY_AUTH_PUBKEY, $credential) && array_key_exists(Shunt::KEY_AUTH_PRIVKEY, $credential)) {
                 $this->setAuth(Auth::PUBKEY_FILE, $credential);
+            } elseif (array_key_exists(Shunt::KEY_AUTH_AGENT, $credential) && array_key_exists(Shunt::KEY_AUTH_USERNAME, $credential)) {
+                $this->setAuth(Auth::AGENT, array($credential[Shunt::KEY_AUTH_USERNAME]));
             }
             // @codeCoverageIgnoreEnd
         }

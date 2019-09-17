@@ -23,6 +23,7 @@ interface AuthInterface
     const FUNCTION_PREFIX = 'ssh2_';
     const PUBKEY_FILE = 'auth_pubkey_file';
     const PASSWORD = 'auth_password';
+    const AGENT = 'auth_agent';
     const NONE = 'auth_none';
 
     /**

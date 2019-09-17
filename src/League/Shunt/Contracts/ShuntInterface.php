@@ -31,6 +31,8 @@ interface ShuntInterface
     const KEY_AUTH_PASSWORD = 'password';
     const KEY_AUTH_PUBKEY = 'pubkeyfile';
     const KEY_AUTH_PRIVKEY = 'privkeyfile';
+    const KEY_AUTH_USERNAME = 'username';
+    const KEY_AUTH_AGENT = 'agent';
     const SIGNATURE_VAR = '<required> $s';
     const SIGNATURE_CLASS = '<required> Shunt $s';
     const SIGNATURE_NAMESPACE_CLASS = '<required> League\Shunt\Shunt $s';
