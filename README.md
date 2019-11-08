@@ -48,37 +48,39 @@ From the root folder of your composer-based project, use the Shunt script as fol
 
 By default, the script will look for a file called `Shuntfile`, which contain hosts information, credential and your tasks. Here the structure of `Shuntfile` :
 
-	<?php
+```php
+<?php
 
-	return array(
+return array(
 
-		'hosts' => array(
-			'staging' => 'staging.domain.com',
-			'repro' => 'backup.domain.com',
-			'production' => 'production.domain.com',
-		),
+	'hosts' => array(
+		'staging' => 'staging.domain.com',
+		'repro' => 'backup.domain.com',
+		'production' => 'production.domain.com',
+	),
 
-		'auth' => array(
-			'username' => 'shunt',
-			'password' => 'hearmyroar',
-			'pubkeyfile' => NULL,
-			'privkeyfile' => NULL,
-			'passphrase' => NULL,
-		),
+	'auth' => array(
+		'username' => 'shunt',
+		'password' => 'hearmyroar',
+		'pubkeyfile' => NULL,
+		'privkeyfile' => NULL,
+		'passphrase' => NULL,
+	),
 
-		'tasks' => array(
-			'read_home_dir' => function($s) {
-				$s->run('ls');
-			},
-			'print_php_info' => function($s) {
-				$s->run('php -i');
-			},
-			'upload_foo_source' => function($s) {
-				$s->sftp()->mkdir('source');
-				$s->scp()->put('foo', 'source/foo');
-			}
-		),
-	);
+	'tasks' => array(
+		'read_home_dir' => function($s) {
+			$s->run('ls');
+		},
+		'print_php_info' => function($s) {
+			$s->run('php -i');
+		},
+		'upload_foo_source' => function($s) {
+			$s->sftp()->mkdir('source');
+			$s->scp()->put('foo', 'source/foo');
+		}
+	),
+);
+```
 
 The `tasks` collection indicates which tasks that available to execute. You can execute `list` command to see all the available tasks and available hosts. Based by above recipes, you could run :
 
