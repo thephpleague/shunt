@@ -169,7 +169,7 @@ class Shunt extends BaseObject implements ShuntInterface
     /**
      * @{inheritDoc}
      */
-    public function run($command, $retval = FALSE)
+    public function run($command, $retval = FALSE, callable $resultHandler = null)
     {
         $this->addCommand($command);
 
@@ -225,6 +225,11 @@ class Shunt extends BaseObject implements ShuntInterface
             } else {
                 $this->printOut('<comment>'.$host.'</comment> > <info>'.$resultDio.'</info>');
             }
+        }
+
+        // invoke the result handler if we've a result indeed
+        if ($resultHandler && $resultDio) {
+            call_user_func_array($resultHandler, array($resultDio));
         }
 
         if ($retval) return (int) $halt;

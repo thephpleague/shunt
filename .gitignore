@@ -1,3 +1,6 @@
+.project
+.buildpath
 phpunit.xml
 composer.lock
 /vendor
+/.settings
